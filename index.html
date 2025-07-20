@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavinda Hemarathna | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#10101a',
+                        'secondary': '#16213e',
+                        'accent': '#9f7aea', // Luminous Purple
+                        'light-text': '#e0e0e0',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #10101a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9f7aea;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8b5cf6;
+        }
+        /* Style for the canvas background */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Behind hero content */
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2; /* In front of canvas */
+        }
+    </style>
+</head>
+<body class="bg-primary text-light-text font-sans">
+
+    <!-- Header & Navbar -->
+    <header class="bg-secondary/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">K<span class="text-accent">H</span></a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#home" class="hover:text-accent transition-colors duration-300">Home</a>
+                <a href="#education" class="hover:text-accent transition-colors duration-300">Education</a>
+                <a href="#skills" class="hover:text-accent transition-colors duration-300">Skills</a>
+                <a href="#projects" class="hover:text-accent transition-colors duration-300">Projects</a>
+                <a href="#contact" class="bg-accent hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#home" class="block hover:text-accent transition-colors duration-300">Home</a>
+            <a href="#education" class="block hover:text-accent transition-colors duration-300">Education</a>
+            <a href="#skills" class="block hover:text-accent transition-colors duration-300">Skills</a>
+            <a href="#projects" class="block hover:text-accent transition-colors duration-300">Projects</a>
+            <a href="#contact" class="block mt-2 bg-accent hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 text-center">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-content container mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img src="pic.jpg" alt="Kavinda Hemarathna" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-accent shadow-lg shadow-purple-900/40">
+                    </div>
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-white">Kavinda Hemarathna</h1>
+                        <div class="flex justify-center md:justify-start space-x-2 my-4 flex-wrap gap-y-2">
+                            <span class="bg-secondary text-accent text-sm font-semibold px-3 py-1 rounded-full">Backend Developer</span>
+                            <span class="bg-secondary text-accent text-sm font-semibold px-3 py-1 rounded-full">Full Stack Developer</span>
+                            <span class="bg-secondary text-accent text-sm font-semibold px-3 py-1 rounded-full">Quick Learner</span>
+                        </div>
+                        <p class="mt-4 max-w-2xl mx-auto md:mx-0 text-gray-300">
+                            I am a Software Engineering undergraduate with a strong passion for both client-side and server-side development. I enjoy creating dynamic, user-friendly applications and solving complex problems through clean and efficient code. With a keen interest in back-end development, system architecture and Robotics/IoT, I am constantly exploring new technologies to enhance my skills.
+                        </p>
+                        <div class="mt-6 flex justify-center md:justify-start space-x-4">
+                            <a href="https://www.linkedin.com/in/kavindahemarathna" target="_blank" class="text-3xl hover:text-accent transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/AshenKavinda" target="_blank" class="text-3xl hover:text-accent transition-colors duration-300"><i class="fab fa-github"></i></a>
+                            <a href="https://medium.com/@kavinda.hemarathna" target="_blank" class="text-3xl hover:text-accent transition-colors duration-300"><i class="fab fa-medium"></i></a>
+                            <a href="mailto:kavinda.hemarathna@outlook.com" class="text-3xl hover:text-accent transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-6">
+            <!-- Education Section -->
+            <section id="education" class="py-20">
+                <h2 class="text-4xl font-bold text-center mb-12">My <span class="text-accent">Education</span></h2>
+                <div class="max-w-4xl mx-auto relative border-l-2 border-accent/30 pl-10">
+                    <!-- HND -->
+                    <div class="mb-10">
+                        <div class="absolute w-6 h-6 bg-accent rounded-full -left-3 border-4 border-secondary"></div>
+                        <p class="text-accent text-sm">September 2024 (Expected)</p>
+                        <h3 class="text-xl font-bold">Higher National Diploma in Software Engineering</h3>
+                        <p class="text-gray-400">National Institute of Business Management (NIBM)</p>
+                    </div>
+                    <!-- Diploma -->
+                    <div class="mb-10">
+                        <div class="absolute w-6 h-6 bg-accent rounded-full -left-3 border-4 border-secondary"></div>
+                        <p class="text-accent text-sm">July 2023</p>
+                        <h3 class="text-xl font-bold">Diploma in Software Engineering</h3>
+                        <p class="text-gray-400">National Institute of Business Management (NIBM) - GPA: 3.97</p>
+                    </div>
+                    <!-- High School -->
+                    <div class="mb-10">
+                        <div class="absolute w-6 h-6 bg-accent rounded-full -left-3 border-4 border-secondary"></div>
+                        <p class="text-accent text-sm">2021</p>
+                        <h3 class="text-xl font-bold">High School Diploma (Maths Stream)</h3>
+                        <p class="text-gray-400">Vidyaloka Collage</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="py-20">
+                <h2 class="text-4xl font-bold text-center mb-12">Technical <span class="text-accent">Skills</span></h2>
+                
+                <h3 class="text-2xl font-semibold text-center mb-8">Featured Tech Stacks</h3>
+                <div class="flex justify-center gap-8 md:gap-12 mb-16 flex-wrap">
+                    <div class="text-center group flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-32">
+                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg" alt="Node.js" class="h-12 w-12 transition-transform duration-300 group-hover:scale-110 brightness-0 invert"/>
+                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/express.svg" alt="Express" class="h-12 w-12 transition-transform duration-300 group-hover:scale-110 brightness-0 invert"/>
+                        </div>
+                        <p class="mt-2 font-semibold">Node.js & Express</p>
+                    </div>
+                    <div class="text-center group flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-32">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="h-12 w-12 transition-transform duration-300 group-hover:scale-110 brightness-0 invert"/>
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spring.svg" alt="Spring Boot" class="h-12 w-12 transition-transform duration-300 group-hover:scale-110 brightness-0 invert"/>
+                        </div>
+                        <p class="mt-2 font-semibold">Java & Spring Boot</p>
+                    </div>
+                    <div class="text-center group flex flex-col items-center">
+                        <div class="flex items-center justify-center h-16 w-32">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/csharp.svg" alt="C#" class="h-12 w-12 transition-transform duration-300 group-hover:scale-110 brightness-0 invert"/>
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/dotnet.svg" alt=".NET Core" class="h-12 w-12 transition-transform duration-300 group-hover:scale-110 brightness-0 invert"/>
+                        </div>
+                        <p class="mt-2 font-semibold">C# & ASP.NET Core <span class="text-xs text-accent">(Learning)</span></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-center text-accent mb-6">Languages & Frameworks</h3>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <span class="skill-tag">Java</span><span class="skill-tag">Spring Boot</span><span class="skill-tag">Node.js</span><span class="skill-tag">Express.js</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span><span class="skill-tag">PHP</span><span class="skill-tag">C</span><span class="skill-tag">Bootstrap</span><span class="skill-tag">Tailwind</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-center text-accent mb-6">Databases & Cloud</h3>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Firebase Firestore</span><span class="skill-tag">AWS</span><span class="skill-tag">Firebase</span><span class="skill-tag">MongoDB Atlas</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-center text-accent mb-6">Soft Skills</h3>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <span class="skill-tag">Problem-Solving</span><span class="skill-tag">Critical Thinking</span><span class="skill-tag">Attention to Detail</span><span class="skill-tag">Adaptability</span><span class="skill-tag">Time Management</span><span class="skill-tag">Creativity</span><span class="skill-tag">Communication</span><span class="skill-tag">Prompt Engineering</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-center text-accent mb-6">Other Technologies</h3>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <span class="skill-tag">Robotics</span><span class="skill-tag">Electronics</span><span class="skill-tag">IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-20">
+                <h2 class="text-4xl font-bold text-center mb-12">Featured <span class="text-accent">Projects</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-accent/40 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-white">Identity Microservice</h3>
+                            <p class="mt-2 text-gray-300 text-sm">Built as a learning project, this Node.js microservice handles all authentication and user management features, acting as a standalone identity provider.</p>
+                        </div>
+                        <div class="p-6 bg-primary/50">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">MongoDB</span>
+                            </div>
+                            <a href="https://github.com/AshenKavinda/Identity-Microservice" target="_blank" class="text-accent font-semibold hover:underline">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-accent/40 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-white">Automated Dispensing System</h3>
+                            <p class="mt-2 text-gray-300 text-sm">A robotic prototype that automatically measures and dispenses dry food items like rice and dhal, aiming to reduce queues and improve measurement accuracy in supermarkets.</p>
+                        </div>
+                        <div class="p-6 bg-primary/50">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Arduino</span><span class="tech-tag">Electronics</span>
+                            </div>
+                            <a href="https://github.com/AshenKavinda/Automated-Measuring-and-Dispensing-System" target="_blank" class="text-accent font-semibold hover:underline">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-accent/40 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-white">Event Management System Backend</h3>
+                            <p class="mt-2 text-gray-300 text-sm">A backend system using a layered architecture to manage events, announcements, and mock interviews for educational institutions, featuring a full REST API with authentication.</p>
+                        </div>
+                        <div class="p-6 bg-primary/50">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Spring Boot</span><span class="tech-tag">Hibernate</span><span class="tech-tag">MySQL</span>
+                            </div>
+                            <a href="https://github.com/AshenKavinda/Event-Management-System-BackEnd" target="_blank" class="text-accent font-semibold hover:underline">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-accent/40 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-white">Healthcare Support Network</h3>
+                            <p class="mt-2 text-gray-300 text-sm">A web application to support maternal/child healthcare, allowing midwives to manage schedules, patient records, and vaccinations online, with QR codes for infants.</p>
+                        </div>
+                        <div class="p-6 bg-primary/50">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">AJAX</span><span class="tech-tag">Bootstrap</span>
+                            </div>
+                            <a href="https://github.com/AshenKavinda/Healthcare-Support-Network" target="_blank" class="text-accent font-semibold hover:underline">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="bg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-accent/40 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-white">Supermarket Management System</h3>
+                            <p class="mt-2 text-gray-300 text-sm">A Java Swing desktop application designed to streamline supermarket operations by providing specialized features for cashiers, stock managers, officers, and admins.</p>
+                        </div>
+                         <div class="p-6 bg-primary/50">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                               <span class="tech-tag">Java</span><span class="tech-tag">Java Swing</span><span class="tech-tag">MySQL</span>
+                            </div>
+                            <a href="https://github.com/AshenKavinda/Supermarket-Management-System" target="_blank" class="text-accent font-semibold hover:underline">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+                <!-- Contact Section -->
+            <section id="contact" class="py-20">
+                <div class="max-w-3xl mx-auto text-center px-4">
+                    <h2 class="text-4xl font-bold">
+                        Get In <span class="text-accent">Touch</span>
+                    </h2>
+                    <p class="mt-4 mb-8 text-gray-300">
+                        I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to send me a message.
+                    </p>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="space-y-6">
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your Name"
+                                required
+                                class="w-full px-4 py-3 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-300 shadow-md focus:shadow-purple-500/50"
+                            />
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Your Email"
+                                required
+                                class="w-full px-4 py-3 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-300 shadow-md focus:shadow-purple-500/50"
+                            />
+                        </div>
+                        <div>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                placeholder="Your Message"
+                                required
+                                class="w-full px-4 py-3 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-300 shadow-md focus:shadow-purple-500/50"
+                            ></textarea>
+                        </div>
+                        <div>
+                            <button
+                                type="submit"
+                                class="w-full bg-accent text-white font-bold text-lg py-3 px-8 rounded-full hover:bg-purple-700 transition-colors duration-300"
+                            >
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div id="form-status" class="mt-6 text-lg"></div>
+                    <div class="mt-12 flex justify-center space-x-6">
+                        <a
+                            href="https://www.linkedin.com/in/kavindahemarathna"
+                            target="_blank"
+                            class="text-4xl hover:text-accent transition-colors duration-300"
+                        >
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a
+                            href="https://github.com/AshenKavinda"
+                            target="_blank"
+                            class="text-4xl hover:text-accent transition-colors duration-300"
+                        >
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a 
+                            href="https://medium.com/@kavinda.hemarathna" 
+                            target="_blank" 
+                            class="text-3xl hover:text-accent transition-colors duration-300">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a
+                            href="tel:+94783117761"
+                            class="text-4xl hover:text-accent transition-colors duration-300"
+                        >
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary border-t border-accent/20">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-400">
+            <p>&copy; 2025 Kavinda Hemarathna. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <style>
+        .skill-tag {
+            @apply bg-secondary text-light-text text-sm font-medium px-4 py-2 rounded-md shadow-sm;
+        }
+        .tech-tag {
+             @apply bg-primary text-accent text-xs font-bold mr-2 mb-2 px-2.5 py-1 rounded;
+        }
+        .form-input {
+            @apply w-full bg-secondary border border-primary focus:border-accent rounded-lg py-3 px-4 text-light-text placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-300;
+        }
+    </style>
+
+    <script>
+        // --- Mobile Menu ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // --- Contact Form ---
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            formStatus.textContent = 'Sending...';
+            formStatus.classList.remove('text-green-400', 'text-red-400');
+            formStatus.classList.add('text-accent');
+
+            setTimeout(() => {
+                // On success
+                formStatus.textContent = 'Message sent successfully! Thank you for reaching out.';
+                formStatus.classList.add('text-green-400');
+                contactForm.reset();
+
+                // Hide the message after a few seconds
+                setTimeout(() => {
+                    formStatus.textContent = '';
+                }, 5000);
+
+            }, 2000); // Simulate 2-second delay
+        });
+
+
+        // --- Canvas Animation ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray;
+
+        // Set canvas size
+        function setCanvasSize() {
+            const heroSection = document.getElementById('home');
+            canvas.width = heroSection.offsetWidth;
+            canvas.height = heroSection.offsetHeight;
+        }
+
+        // Particle class
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+
+            // Method to draw individual particle
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            // Check particle position, move particle
+            update() {
+                // Check if particle is still within canvas
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+                // Move particle
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        // Create particle array
+        function init() {
+            setCanvasSize();
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * .4) - .2;
+                let directionY = (Math.random() * .4) - .2;
+                let color = 'rgba(159, 122, 234, 0.6)'; // Luminous Purple with opacity
+
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        }
+
+        // Check if particles are close enough to draw a line between them
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+                        ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                        opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = `rgba(159, 122, 234, ${opacityValue})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Resize event
+        window.addEventListener('resize', () => {
+            init();
+        });
+        
+        // Window load event
+        window.addEventListener('load', () => {
+            init();
+            animate();
+        });
+
+
+    </script>
+
+</body>
+</html>
